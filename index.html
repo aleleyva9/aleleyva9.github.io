@@ -1,0 +1,435 @@
+<title>Alejandra Leyva</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+/* Layout: a quiet academic site in the manner of a Cambridge faculty page. Near-white ground, Playfair Display for headings, Source Sans for text, a dark green for navigation. Top bar with the name and five tabs; each tab is a view in the same page. */
+:root {
+  --bg: #fcfcfc;
+  --bg-2: #f4f4f2;
+  --fg: #141414;
+  --fg-2: #666666;
+  --line: #e4e4e2;
+  --accent: #224f3c;
+  --accent-ink: #163528;
+  --display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --body: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "Source Sans 3", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121412; --bg-2: #1b1e1b; --fg: #ececea; --fg-2: #a4a7a3; --line: #2b2f2b; --accent: #8fc9ae; --accent-ink: #b5dfc8; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #121412; --bg-2: #1b1e1b; --fg: #ececea; --fg-2: #a4a7a3; --line: #2b2f2b; --accent: #8fc9ae; --accent-ink: #b5dfc8; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--body); font-size: 16px; line-height: 1.6;
+  padding-block: 0;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  -webkit-font-smoothing: antialiased;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+a { color: var(--fg); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; text-decoration-color: var(--fg-2); }
+a:hover { color: var(--accent); text-decoration-color: var(--accent); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+p { margin: 0; }
+h1, h2, h3 { margin: 0; text-wrap: balance; }
+.wrap { max-width: 1040px; margin: 0 auto; }
+
+/* Top bar */
+.top { position: sticky; top: env(safe-area-inset-top, 0px); background: var(--bg); z-index: 5; border-bottom: 1px solid var(--line); }
+.top .wrap { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; flex-wrap: wrap; padding-block: 18px 0; }
+.brand { font-family: var(--display); font-size: 20px; letter-spacing: 0.025em; color: var(--fg); text-decoration: none; padding-bottom: 14px; }
+.brand:hover { color: var(--fg); }
+nav { display: flex; gap: 4px; flex-wrap: wrap; }
+nav a { font-family: var(--body); font-size: 14px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; color: var(--accent); padding: 6px 10px 14px; border-bottom: 2px solid transparent; margin-bottom: -1px; }
+nav a:hover { color: var(--fg); }
+nav a[aria-current="page"] { color: var(--fg); border-bottom-color: var(--fg); }
+
+/* Views */
+main .wrap { padding-block: 64px 88px; }
+.view { display: flex; flex-direction: column; gap: 56px; min-width: 0; }
+.eyebrow { font-family: var(--body); font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-2); }
+h1.title { font-family: var(--display); font-size: 24px; font-weight: 400; line-height: 1.4; letter-spacing: 0.02em; }
+h2 { font-family: var(--display); font-size: 30px; font-weight: 400; line-height: 1.2; letter-spacing: 0.025em; }
+h3 { font-size: 17px; font-weight: 600; line-height: 1.35; }
+.prose { display: flex; flex-direction: column; gap: 16px; max-width: 68ch; }
+.prose p { font-size: 15px; color: var(--fg-2); line-height: 1.65; }
+.muted { color: var(--fg-2); }
+.small { font-size: 15px; }
+section { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+
+/* About: text left, photo right */
+.about-grid { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 64px; align-items: start; }
+.about-grid .prose { gap: 20px; }
+.photo { width: 100%; aspect-ratio: 6 / 5; max-width: 100%; background: var(--bg-2); border: 1px solid var(--line); display: grid; place-items: center; color: var(--fg-2); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; text-align: center; padding: 16px; object-fit: cover; }
+.photo span { font-family: var(--display); font-size: 56px; letter-spacing: 0; text-transform: none; color: var(--fg); display: block; margin-bottom: 10px; }
+
+/* Areas of inquiry, three cards */
+.areas-wrap { border-top: 1px solid var(--line); padding-top: 40px; gap: 28px; }
+.areas { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+.area { background: var(--bg-2); border: 1px solid var(--line); padding: 26px 26px 24px; display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.area h3 { font-family: var(--display); font-size: 21px; font-weight: 400; line-height: 1.25; letter-spacing: 0.01em; }
+.area ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.area li { font-size: 15px; color: var(--fg-2); line-height: 1.5; padding-left: 16px; position: relative; }
+.area li::before { content: "·"; position: absolute; left: 2px; color: var(--fg-2); }
+
+/* Work grid */
+.work { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+.card { border: 1px solid var(--line); padding: 22px 22px 20px; display: flex; flex-direction: column; gap: 10px; background: var(--bg); min-width: 0; }
+.card .kind { font-family: var(--body); font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-2); display: flex; justify-content: space-between; gap: 12px; }
+.card .kind em { font-style: normal; color: var(--fg-2); font-variant-numeric: tabular-nums; }
+.card h3 { font-family: var(--display); font-size: 20px; font-weight: 400; line-height: 1.3; letter-spacing: 0.01em; }
+.card p { font-size: 15px; color: var(--fg-2); }
+.card .org { font-size: 14px; color: var(--fg-2); font-style: italic; }
+.card .go { margin-top: auto; font-size: 14px; padding-top: 6px; }
+
+/* CV */
+.cv-head { display: flex; flex-wrap: wrap; gap: 16px 32px; align-items: baseline; justify-content: space-between; }
+.jump { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; }
+.jump a { text-decoration: none; color: var(--accent); }
+.jump a:hover { color: var(--fg); }
+.cv section { scroll-margin-top: 96px; }
+.cv h2 { font-size: 24px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+.entries { display: flex; flex-direction: column; gap: 22px; }
+.entry { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 4px 28px; }
+.entry .when { font-size: 13px; color: var(--fg-2); padding-top: 4px; font-variant-numeric: tabular-nums; line-height: 1.5; }
+.entry .org { color: var(--fg-2); font-size: 15px; font-style: italic; }
+.entry p.desc { font-size: 15px; color: var(--fg-2); margin-top: 6px; max-width: 64ch; }
+.entry ul { margin: 6px 0 0; padding-left: 18px; font-size: 15px; color: var(--fg-2); display: flex; flex-direction: column; gap: 4px; max-width: 64ch; }
+.tag { display: inline-block; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--line); border-radius: 2px; padding: 1px 7px; margin-left: 8px; vertical-align: 2px; font-weight: 500; }
+.kv { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 6px 28px; font-size: 15px; }
+.kv dt { font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-2); padding-top: 4px; }
+.kv dd { margin: 0; }
+.inline-list { font-size: 15px; color: var(--fg-2); display: flex; flex-direction: column; gap: 6px; }
+.inline-list b { font-weight: 600; color: var(--fg); }
+
+/* More */
+.more-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+.ph { aspect-ratio: 1 / 1; max-width: 100%; background: var(--bg-2); border: 1px dashed var(--line); display: grid; place-items: center; color: var(--fg-2); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+
+/* Contact */
+.contact-list { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+.contact-row { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 4px 28px; padding-block: 16px; border-bottom: 1px solid var(--line); align-items: baseline; }
+.contact-row .k { font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-2); }
+.email { display: inline-flex; align-items: center; gap: 12px; flex-wrap: wrap; font-size: 16px; }
+.email code { font-family: inherit; user-select: all; }
+button.copy { font-family: var(--body); font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; background: none; border: 1px solid var(--line); color: var(--accent); padding: 5px 10px; border-radius: 2px; cursor: pointer; }
+button.copy:hover { border-color: var(--accent); color: var(--fg); }
+
+footer .wrap { border-top: 1px solid var(--line); padding-block: 20px 40px; font-size: 13px; color: var(--fg-2); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+@media (max-width: 820px) {
+  .about-grid { grid-template-columns: 1fr; gap: 32px; }
+  .photo { order: -1; max-width: 320px; }
+  .entry, .kv, .contact-row { grid-template-columns: 1fr; }
+  h1.title { font-size: 22px; }
+  main .wrap { padding-block: 40px 64px; }
+  .view { gap: 44px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  a, button.copy { transition: color .15s ease, border-color .15s ease; }
+}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#about">Alejandra Leyva</a>
+    <nav aria-label="Sections">
+      <a href="#about" data-view="about">About</a>
+      <a href="#work" data-view="work">Work</a>
+      <a href="#cv" data-view="cv">CV</a>
+      <a href="#more" data-view="more">More</a>
+      <a href="#contact" data-view="contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <!-- ABOUT -->
+    <div class="view" id="view-about">
+      <div class="about-grid">
+        <div class="prose">
+          <h1 class="title">I am a political scientist and AI governance researcher working on how states and institutions can stay in control as AI systems become more capable.</h1>
+          <p>My research focuses on middle powers and institutional preparedness, on what gives humans standing once advanced AI can no longer be fully controlled, and on meaningful human control over the use of force. I currently work on these questions as a fellow in several AI safety and governance programmes.</p>
+          <p>Before that I spent a decade translating complex systems for the people who decide about them. At Mexico's highest electoral court I turned case files and voting data into recommendations for a magistrate and wrote the public explanations of dense rulings. At Meta I worked on a crisis response team tracking media scrutiny of AI and data use across Europe. At Signal AI I sat between clients such as DeepMind and Netflix and the engineers building their risk tools.</p>
+          <p>I hold an MSc in Security, Peacebuilding and Diplomacy from Loughborough University and a BA in Political Science from ITAM.</p>
+        </div>
+        <div class="photo" aria-label="Photo placeholder"><div><span>AL</span>Photo goes here</div></div>
+      </div>
+
+      <section class="areas-wrap">
+        <p class="eyebrow">Areas of inquiry</p>
+        <div class="areas">
+          <div class="area">
+            <h3>Middle Powers and Institutional Preparedness</h3>
+            <ul>
+              <li>How countries outside the frontier can combine complementary sources of leverage over frontier AI developers into credible safeguards</li>
+              <li>Mapping how national institutions recognise and respond to AI risks, with a risk map of Mexico's institutional agenda on AI</li>
+              <li>Exposure to foreign AI systems and the bargaining position of states in the AI supply chain</li>
+            </ul>
+          </div>
+          <div class="area">
+            <h3>Post-Control Scenarios</h3>
+            <ul>
+              <li>What gives humans claims, standing and bargaining power once advanced AI can no longer be fully controlled</li>
+              <li>How governments and organisations can prepare for AI systems that become difficult to control</li>
+              <li>Convening expert roundtables across governance, economics, alignment and artificial minds</li>
+            </ul>
+          </div>
+          <div class="area">
+            <h3>Autonomous Weapons</h3>
+            <ul>
+              <li>Meaningful human control over the use of force, a human decision for every use of force against a person</li>
+              <li>AI-enabled autonomous weapons in civilian and law-enforcement contexts</li>
+              <li>Coalition building and advocacy campaigns for state-level policy</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- WORK -->
+    <div class="view" id="view-work" hidden>
+      <section>
+        <p class="eyebrow">Work</p>
+        <h1 class="title">Papers, campaigns and convenings</h1>
+        <p class="muted small">A selection across research, advocacy and policy. Newest first.</p>
+      </section>
+      <div class="work">
+        <article class="card">
+          <div class="kind"><span>Paper</span><em>2026</em></div>
+          <h3>AI Risks and Sovereignty. What Mexico's Institutional Agenda Recognises and Addresses</h3>
+          <p class="org">Apart Research, Global South AI Safety Hackathon · published on Zenodo in English and Spanish</p>
+          <p>A risk map with seven scenarios and their risk pathways, applied to an original dataset of Mexican government actions on AI to see which risks the institutional agenda recognises and which it leaves open.</p>
+          <a class="go" href="https://zenodo.org/records/23479680" target="_blank" rel="noopener">Read on Zenodo</a>
+        </article>
+        <article class="card">
+          <div class="kind"><span>Campaign</span><em>2026</em></div>
+          <h3>No Killer Robots open letter</h3>
+          <p class="org">Sapiens First · California</p>
+          <p>A coalition open letter and policy brief calling for a human decision for every use of force against a person, scoped to civilian and law-enforcement uses of AI-enabled autonomous weapons.</p>
+          <span class="go muted">In progress</span>
+        </article>
+        <article class="card">
+          <div class="kind"><span>Convening</span><em>2026</em></div>
+          <h3>Post-Control Initiative roundtables</h3>
+          <p class="org">Sentient Futures Project</p>
+          <p>A series of small expert roundtables on what gives humans standing and claims in a post-control AI world, producing a short synthesis and seeding a research agenda.</p>
+          <span class="go muted">Ongoing</span>
+        </article>
+        <article class="card">
+          <div class="kind"><span>Research</span><em>2026</em></div>
+          <h3>Colombia's exposure to foreign AI systems</h3>
+          <p class="org">Project AWARE · Country Governance</p>
+          <p>Mapping institutional and policy gaps and the strategic nodes where Colombia holds leverage, with recommendations to strengthen its national AI governance and bargaining position.</p>
+          <span class="go muted">Ongoing</span>
+        </article>
+        <article class="card">
+          <div class="kind"><span>Essay</span><em>2026</em></div>
+          <h3>The AI race as a prisoner's dilemma</h3>
+          <p class="org">Substack</p>
+          <p>A game-theory reading of frontier AI competition with three players and the U.S. government as payoff-shaper, arguing that regulation and coordination can turn the dilemma into an assurance game.</p>
+          <a class="go" href="https://substack.com/" target="_blank" rel="noopener">Read on Substack</a>
+        </article>
+        <article class="card">
+          <div class="kind"><span>Policy</span><em>2026</em></div>
+          <h3>A UK AI safety policy framework</h3>
+          <p class="org">LISA · AI Safety Policy Hackathon</p>
+          <p>Mapped existing UK institutions and policy proposals, identified governance gaps and recommended areas for greater institutional coordination.</p>
+          <span class="go muted">Hackathon output</span>
+        </article>
+      </div>
+    </div>
+
+    <!-- CV -->
+    <div class="view cv" id="view-cv" hidden>
+      <section>
+        <div class="cv-head">
+          <h1 class="title">Curriculum vitae</h1>
+          <p class="muted small">Last updated October 2026</p>
+        </div>
+        <p class="jump">
+          <a href="#cv">Contact</a><a href="#cv">Summary</a><a href="#cv">AI governance</a><a href="#cv">Experience</a><a href="#cv">Education</a><a href="#cv">Publications</a><a href="#cv">Skills</a><a href="#cv">Languages</a>
+        </p>
+      </section>
+
+      <section id="cv-contact">
+        <h2>Contact</h2>
+        <dl class="kv">
+          <dt>Name</dt><dd>Alejandra Leyva</dd>
+          <dt>Title</dt><dd>Political scientist · AI governance researcher · risk analyst</dd>
+          <dt>Email</dt><dd>Alejandra.leyvaor@gmail.com</dd>
+        </dl>
+      </section>
+
+      <section id="cv-summary">
+        <h2>Professional summary</h2>
+        <p class="prose">Political scientist and researcher with experience in public policy, institutional communications and media analysis. At Meta I worked on a crisis response team addressing media scrutiny and reputational issues involving AI and data. At Mexico's highest electoral court I produced press materials communicating complex judicial decisions. More recently, at Sentient Futures, I have brought together senior experts for roundtable discussions on human control over advanced AI, and I led an advocacy campaign at Sapiens First, including a coalition open letter on autonomous weapons.</p>
+      </section>
+
+      <section id="cv-ai">
+        <h2>AI governance and safety</h2>
+        <div class="entries">
+          <div class="entry"><div class="when">2026 — ongoing</div><div><h3>Project Incubator Fellow, Post-Control Initiative</h3><p class="org">Sentient Futures</p><p class="desc">Working with mentor Julia Bossmann to organise expert roundtables and research how governments and organisations can prepare for advanced AI systems that may become difficult to control.</p></div></div>
+          <div class="entry"><div class="when">2026 — ongoing</div><div><h3>Fellow, Advocacy track</h3><p class="org">Sapiens First</p><p class="desc">Developing and piloting a coalition campaign to advocate against AI-enabled autonomous weapons in California.</p></div></div>
+          <div class="entry"><div class="when">2026 — ongoing</div><div><h3>Selected Researcher, Country Governance, Colombia</h3><p class="org">Project AWARE</p><p class="desc">Assessing Colombia's exposure to foreign AI systems, identifying institutional and policy gaps, and developing recommendations to strengthen national AI governance and its bargaining position with foreign AI providers.</p></div></div>
+          <div class="entry"><div class="when">2026</div><div><h3>Independent Researcher, Global South AI Safety Hackathon</h3><p class="org">Apart Research</p><p class="desc">Developed an AI Sovereignty Risk Map and original dataset of Mexican government AI actions to assess institutional preparedness and identify gaps in national AI governance. Paper submitted to SLAS 2027.</p></div></div>
+          <div class="entry"><div class="when">2026</div><div><h3>Researcher, AI Safety Policy Hackathon</h3><p class="org">LISA</p><p class="desc">Developed a UK AI safety policy framework by mapping existing institutions and policy proposals, identifying governance gaps and recommending areas for greater institutional coordination.</p></div></div>
+          <div class="entry"><div class="when">2026</div><div><h3>Frontier AI Governance Course</h3><p class="org">BlueDot Impact</p><p class="desc">Intensive training in frontier AI risks, governance frameworks, evaluations, compute governance and policy responses to advanced AI systems.</p></div></div>
+        </div>
+      </section>
+
+      <section id="cv-experience">
+        <h2>Professional experience</h2>
+        <div class="entries">
+          <div class="entry"><div class="when">Jan — Oct 2026<br>Jul 2022 — Jul 2023</div><div><h3>Project-based Risk Analyst · Research Analyst</h3><p class="org">Signal AI, Remote / London, UK</p><ul>
+            <li>Led client-facing research and reporting for clients including Decathlon, Diageo, DeepMind and Netflix, turning media, risk and reputation data into executive-level insights and recommendations.</li>
+            <li>Acted as the bridge between clients and the engineering and product teams, translating client needs into requirements and validating that delivered tools work in real operations.</li>
+            <li>Worked with the ML team to define and validate topic taxonomies on regulation, compliance and public accountability.</li>
+            <li>Built thematic datasets, queried media intelligence APIs and designed Power BI dashboards to analyse key trends.</li></ul></div></div>
+          <div class="entry"><div class="when">Jan — Oct 2025<br>Mar 2018 — Jul 2019</div><div><h3>Senior Policy Adviser · Policy Adviser</h3><p class="org">Supreme Court of the Electoral Judiciary (TEPJF), Mexico City</p><ul>
+            <li>Led policy-relevant research supporting judgments on complex cases related to democracy and security, synthesising quantitative data, case files and context into recommendations for Magistrate Reyes Rodríguez Mondragón.</li>
+            <li>Built early-warning systems and dashboards (Power BI, QGIS, Stata) mapping judicial trends, voting patterns and institutional risks for senior decision-makers.</li>
+            <li>Drafted public-facing explanations of complex rulings, translating dense legal reasoning into accessible narratives for the press and public.</li></ul></div></div>
+          <div class="entry"><div class="when">Jul 2023 — Feb 2024</div><div><h3>Media Strategic Analyst</h3><p class="org">Meta (Facebook) via Insight Select, London, UK</p><ul>
+            <li>Led evidence-driven analyses of news cycles on data-use policy, privacy regulation and AI-related issues in Europe for senior leaders.</li>
+            <li>Monitored journalists, watchdog groups and policymakers to assess reputational and regulatory exposure.</li>
+            <li>Delivered concise, time-sensitive insights supporting measurement and PR teams during product launches and crises, for example the use of user data for AI training.</li></ul></div></div>
+          <div class="entry"><div class="when">Nov 2021 — Jul 2024</div><div><h3>Trustee</h3><p class="org">Centric Community Projects, London, UK</p><p class="desc">Oversaw governance and compliance for charitable initiatives, supporting the allocation of resources to community organisations across the UK.</p></div></div>
+        </div>
+      </section>
+
+      <section id="cv-earlier">
+        <h2>Earlier experience</h2>
+        <div class="entries">
+          <div class="entry"><div class="when">Nov 2021 — Jul 2022</div><div><h3>Researcher</h3><p class="org">TerraVerde Sustainability, London, UK</p><p class="desc">Analysed legal frameworks affecting environmental and tourism sectors, providing actionable policy insights for business and regulatory adaptation.</p></div></div>
+          <div class="entry"><div class="when">Nov 2017 — Mar 2019</div><div><h3>Project Analyst</h3><p class="org">Centre for Economic Research and Teaching (CIDE), Mexico City</p><p class="desc">Conducted quantitative studies on justice reforms, focusing on behavioural responses to legal changes in gender and violence.</p></div></div>
+          <div class="entry"><div class="when">Sep 2017 — Mar 2018</div><div><h3>Political Consultant</h3><p class="org">Political Communication Workshop (SPIN), Mexico City</p><p class="desc">Led media strategy during political crises, integrating media monitoring tools to improve decision-making under pressure.</p></div></div>
+          <div class="entry"><div class="when">Mar 2015 — Mar 2016</div><div><h3>Investigator</h3><p class="org">Regional Chamber of the Electoral Tribunal (TEPJF), Toluca</p><p class="desc">Conducted behavioural analysis on how violence affected voter participation and judicial decisions on electoral integrity.</p></div></div>
+          <div class="entry"><div class="when">Sep 2013 — Mar 2015</div><div><h3>Research Assistant</h3><p class="org">National Commission of Human Rights (CNDH), Mexico City</p><p class="desc">Built and managed databases tracking national human rights violations, including intentional homicides and armed group activities.</p></div></div>
+        </div>
+      </section>
+
+      <section id="cv-education">
+        <h2>Education</h2>
+        <div class="entries">
+          <div class="entry"><div class="when">2019 — 2021</div><div><h3>MSc Security, Peacebuilding and Diplomacy <span class="tag">Best Dissertation of the Institute</span></h3><p class="org">Loughborough University, London, UK</p><p class="desc">Dissertation on how political leadership strategies during the COVID-19 pandemic influenced public trust and policy effectiveness, a mixed-methods analysis across diverse political regimes.</p></div></div>
+          <div class="entry"><div class="when">2010 — 2015</div><div><h3>BA Political Science</h3><p class="org">Autonomous Technological Institute of Mexico (ITAM), Mexico City</p><p class="desc">Thesis on econometric modelling of women's autonomy and its relation to violence and power disparities in Mexico.</p></div></div>
+        </div>
+      </section>
+
+      <section id="cv-publications">
+        <h2>Publications</h2>
+        <div class="entries">
+          <div class="entry"><div class="when">2026</div><div><h3><a href="https://zenodo.org/records/23479680" target="_blank" rel="noopener">AI Risks and Sovereignty. What Mexico's Institutional Agenda Recognises and Addresses</a></h3><p class="org">Zenodo · English and Spanish · paper submitted to SLAS 2027</p></div></div>
+          <div class="entry"><div class="when">2014</div><div><h3>La cuarta ola</h3><p class="org">Debate Feminista, vol. 50 · co-author</p></div></div>
+        </div>
+      </section>
+
+      <section id="cv-skills">
+        <h2>Skills</h2>
+        <div class="inline-list">
+          <p><b>Policy and research.</b> Evidence-based public policy advisory and brief-writing for senior stakeholders; empirical research and mixed-methods analysis; frontier AI governance, model evaluations and AI safety policy frameworks.</p>
+          <p><b>Analysis and tools.</b> Stata, QGIS, Power BI, Excel; basic Python for analysis; AI-powered media and information monitoring (Signal AI, Cision, Brandwatch); data visualisation and insight reporting for non-technical audiences.</p>
+          <p><b>Communication.</b> Client and stakeholder management in cross-functional teams; strategic communication and narrative building for complex, technical topics.</p>
+        </div>
+      </section>
+
+      <section id="cv-languages">
+        <h2>Languages</h2>
+        <div class="inline-list">
+          <p><b>Spanish</b>, native · <b>English</b>, professional · <b>French</b>, intermediate</p>
+        </div>
+      </section>
+    </div>
+
+    <!-- MORE -->
+    <div class="view" id="view-more" hidden>
+      <section>
+        <p class="eyebrow">More</p>
+        <h1 class="title">Outside of work</h1>
+        <div class="prose">
+          <p class="muted">This page will hold two things, the art collective I am part of and photographs from my travels. Both are still being added.</p>
+        </div>
+      </section>
+      <section>
+        <h2>Art collective</h2>
+        <p class="prose muted small">Name, a short description and a few images to come.</p>
+      </section>
+      <section>
+        <h2>Travel photographs</h2>
+        <div class="more-grid">
+          <div class="ph">Photo</div><div class="ph">Photo</div><div class="ph">Photo</div><div class="ph">Photo</div>
+        </div>
+      </section>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="view" id="view-contact" hidden>
+      <section>
+        <p class="eyebrow">Contact</p>
+        <h1 class="title">Working on AI governance, policy or risk? Let's talk.</h1>
+      </section>
+      <div class="contact-list">
+        <div class="contact-row"><div class="k">Email</div><div class="email"><code id="email-text">Alejandra.leyvaor@gmail.com</code><button class="copy" id="copy-email" type="button">Copy</button></div></div>
+        <div class="contact-row"><div class="k">LinkedIn</div><div><a href="https://www.linkedin.com/" target="_blank" rel="noopener">linkedin.com</a></div></div>
+        <div class="contact-row"><div class="k">Substack</div><div><a href="https://substack.com/" target="_blank" rel="noopener">substack.com</a></div></div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer><div class="wrap"><span>Alejandra Leyva · 2026</span><span>AI governance and policy</span></div></footer>
+
+<script>
+(function(){
+  var views = ['about','work','cv','more','contact'];
+  var links = document.querySelectorAll('nav a[data-view]');
+  function show(name){
+    if (views.indexOf(name) < 0) name = 'about';
+    views.forEach(function(v){ document.getElementById('view-' + v).hidden = (v !== name); });
+    links.forEach(function(a){
+      if (a.getAttribute('data-view') === name) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current');
+    });
+    window.scrollTo(0, 0);
+  }
+  function fromHash(){ show((location.hash || '#about').slice(1)); }
+  window.addEventListener('hashchange', fromHash);
+  fromHash();
+
+  // CV jump links scroll to their section inside the CV view
+  var jumps = document.querySelectorAll('.jump a');
+  var ids = ['cv-contact','cv-summary','cv-ai','cv-experience','cv-education','cv-publications','cv-skills','cv-languages'];
+  jumps.forEach(function(a, i){
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      var el = document.getElementById(ids[i]);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  var btn = document.getElementById('copy-email');
+  var code = document.getElementById('email-text');
+  btn.addEventListener('click', function(){
+    var text = code.textContent;
+    function done(){ btn.textContent = 'Copied'; setTimeout(function(){ btn.textContent = 'Copy'; }, 1800); }
+    function fallback(){
+      var r = document.createRange(); r.selectNodeContents(code);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      btn.textContent = 'Selected'; setTimeout(function(){ btn.textContent = 'Copy'; }, 1800);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } else { fallback(); }
+  });
+})();
+</script>
