@@ -116,8 +116,10 @@ section { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
 .inline-list b { font-weight: 600; color: var(--fg); }
 
 /* More */
-.more-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
-.ph { aspect-ratio: 1 / 1; max-width: 100%; background: var(--bg-2); border: 1px dashed var(--line); display: grid; place-items: center; color: var(--fg-2); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+.more-block { border-top: 1px solid var(--line); padding-top: 32px; gap: 22px; }
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+.gallery img { width: 100%; height: auto; aspect-ratio: 3 / 4; max-width: 100%; object-fit: cover; display: block; background: var(--bg-2); }
+@media (max-width: 480px) { .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; } }
 
 /* Contact */
 .contact-list { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
@@ -348,19 +350,36 @@ footer .wrap { border-top: 1px solid var(--line); padding-block: 20px 40px; font
     <div class="view" id="view-more" hidden>
       <section>
         <p class="eyebrow">More</p>
-        <h1 class="title">Outside of work</h1>
+        <h1 class="title">Outside of work, I am part of an art collective and I travel whenever I can.</h1>
+      </section>
+
+      <section class="more-block">
+        <h2>Latin Hands</h2>
         <div class="prose">
-          <p class="muted">This page will hold two things, the art collective I am part of and photographs from my travels. Both are still being added.</p>
+          <p>I am part of <a href="https://latinhands.art" target="_blank" rel="noopener">Latin Hands</a>, a cultural project that connects Latin American art with institutions, businesses and communities across Europe. Based in London, with activity in Mexico City, it curates exhibitions, runs artist-led workshops, from sensory clay sessions to painting and collage, and supports Latin American artists and migrant integration through art.</p>
+        </div>
+        <div class="gallery">
+          <img src="img/art-show-1.jpg" alt="Group photo at a Latin Hands exhibition, participants holding their paintings" loading="lazy">
+          <img src="img/art-clay.jpg" alt="Blindfolded participants shaping clay at a sensory workshop" loading="lazy">
+          <img src="img/art-stencil.jpg" alt="Painting and stencil workshop table with petals and plants" loading="lazy">
+          <img src="img/art-show-2.jpg" alt="Participants holding collages at a Latin Hands show" loading="lazy">
+          <img src="img/art-sketchbook.jpg" alt="Ink sketchbook page with a sphere, a glass and a face" loading="lazy">
         </div>
       </section>
-      <section>
-        <h2>Art collective</h2>
-        <p class="prose muted small">Name, a short description and a few images to come.</p>
-      </section>
-      <section>
-        <h2>Travel photographs</h2>
-        <div class="more-grid">
-          <div class="ph">Photo</div><div class="ph">Photo</div><div class="ph">Photo</div><div class="ph">Photo</div>
+
+      <section class="more-block">
+        <h2>Travel</h2>
+        <div class="gallery">
+          <img src="img/travel-istanbul-1.jpg" alt="Courtyard of a mosque in Istanbul" loading="lazy">
+          <img src="img/travel-thailand-buddha.jpg" alt="Golden seated Buddha inside a temple in Thailand" loading="lazy">
+          <img src="img/travel-angkor.jpg" alt="Birds over the towers of Angkor Wat at dawn" loading="lazy">
+          <img src="img/travel-vietnam.jpg" alt="Winding mountain road in northern Vietnam" loading="lazy">
+          <img src="img/travel-hongkong.jpg" alt="Dense residential towers in Hong Kong on a rainy day" loading="lazy">
+          <img src="img/travel-bali.jpg" alt="Cliff and turquoise sea at Kelingking Beach, Nusa Penida" loading="lazy">
+          <img src="img/travel-thailand-elephant.jpg" alt="With an elephant in a bamboo forest in Thailand" loading="lazy">
+          <img src="img/travel-istanbul-2.jpg" alt="Smiling in a courtyard in Istanbul" loading="lazy">
+          <img src="img/travel-strasbourg.jpg" alt="Strasbourg Cathedral above a busy street" loading="lazy">
+          <img src="img/travel-rio.jpg" alt="Christ the Redeemer in the fog, Rio de Janeiro" loading="lazy">
         </div>
       </section>
     </div>
