@@ -129,6 +129,14 @@ section { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
 .card p { font-size: 15px; color: var(--fg-2); }
 .card .org { font-size: 14px; color: var(--fg-2); font-style: italic; }
 .card .go { margin-top: auto; font-size: 14px; padding-top: 6px; }
+.card .outputs { margin-top: auto; display: flex; flex-direction: column; gap: 4px; padding-top: 6px; }
+.card .outputs .go { margin-top: 0; padding-top: 0; }
+.earlier { gap: 14px; padding-top: 8px; }
+.pubs { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; border-top: 1px solid var(--line); max-width: 72ch; }
+.pubs li { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 4px 24px; padding-block: 10px; border-bottom: 1px solid var(--line); font-size: 15px; align-items: baseline; }
+.pubs .src { font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-2); }
+.pubs i { font-style: italic; }
+@media (max-width: 600px) { .pubs li { grid-template-columns: 1fr; } }
 
 /* CV */
 .cv-head { display: flex; flex-wrap: wrap; gap: 16px 32px; align-items: baseline; justify-content: space-between; }
@@ -161,7 +169,8 @@ section { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
 .contact-row { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 4px 28px; padding-block: 16px; border-bottom: 1px solid var(--line); align-items: baseline; }
 .contact-row .k { font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-2); }
 .email { display: inline-flex; align-items: center; gap: 12px; flex-wrap: wrap; font-size: 16px; }
-.email code { font-family: inherit; user-select: all; }
+.email .em { display: inline-flex; align-items: center; gap: 8px; }
+.email .sep { color: var(--fg-2); }
 button.copy { font-family: var(--body); font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; background: none; border: 1px solid var(--line); color: var(--accent); padding: 5px 10px; border-radius: 2px; cursor: pointer; }
 button.copy:hover { border-color: var(--accent); color: var(--fg); }
 .band.dark .contact-list, .band.dark .contact-row { border-color: var(--band-line); }
@@ -242,7 +251,7 @@ footer .wrap { border-top: 1px solid var(--line); padding-block: 20px 40px; font
           <div class="area">
             <h3>Autonomous Weapons</h3>
             <ul>
-              <li>Meaningful human control over the use of force, a human decision for every use of force against a person</li>
+              <li>Preventing AI systems from autonomously targeting people, and addressing risks to human rights, human agency and accountability</li>
               <li>AI-enabled autonomous weapons in civilian and law-enforcement contexts</li>
               <li>Coalition building and advocacy campaigns for state-level policy</li>
             </ul>
@@ -256,7 +265,7 @@ footer .wrap { border-top: 1px solid var(--line); padding-block: 20px 40px; font
       <div class="band last"><div class="wrap">
       <section>
         <p class="eyebrow">Work</p>
-        <h1 class="title">Papers, campaigns and convenings</h1>
+        <h1 class="title">Selected Work</h1>
         <p class="muted small">A selection across research, advocacy and policy. Newest first.</p>
       </section>
       <div class="work">
@@ -264,22 +273,28 @@ footer .wrap { border-top: 1px solid var(--line); padding-block: 20px 40px; font
           <div class="kind"><span>Paper</span><em>2026</em></div>
           <h3>AI Risks and Sovereignty. What Mexico's Institutional Agenda Recognises and Addresses</h3>
           <p class="org">Apart Research, Global South AI Safety Hackathon · published on Zenodo in English and Spanish</p>
-          <p>A risk map with seven scenarios and their risk pathways, applied to an original dataset of Mexican government actions on AI to see which risks the institutional agenda recognises and which it leaves open.</p>
+          <p>I developed a risk map covering seven AI risk scenarios and their pathways, and built an original dataset of Mexican government actions on AI to examine which risks institutions recognise and where policy gaps remain. The analysis finds that existing measures largely address visible harms, while more systemic AI risks receive limited attention.</p>
           <a class="go" href="https://zenodo.org/records/23479680" target="_blank" rel="noopener">Read on Zenodo</a>
         </article>
         <article class="card">
           <div class="kind"><span>Campaign</span><em>2026</em></div>
-          <h3>No Killer Robots open letter</h3>
+          <h3>No Killer Robots</h3>
           <p class="org">Sapiens First · California</p>
-          <p>A coalition open letter and policy brief calling for a human decision for every use of force against a person, scoped to civilian and law-enforcement uses of AI-enabled autonomous weapons.</p>
-          <span class="go muted">In progress</span>
+          <p>A California-focused campaign advocating restrictions on AI-enabled weapons that autonomously select or target people, including their use in civilian and law-enforcement contexts. The proposals also call for human authorisation before engaging vehicles that may carry people, while distinguishing these cases from defensive systems targeting incoming missiles or other uncrewed objects.</p>
+          <div class="outputs">
+            <span class="go muted">Open Letter · Link to come</span>
+            <span class="go muted">Policy Brief · In Progress</span>
+          </div>
         </article>
         <article class="card">
-          <div class="kind"><span>Convening</span><em>2026</em></div>
-          <h3>Post-Control Initiative roundtables</h3>
+          <div class="kind"><span>Convening &amp; Research</span><em>2026</em></div>
+          <h3>Human Claims in Post-Control Scenarios</h3>
           <p class="org">Sentient Futures Project</p>
           <p>A series of small expert roundtables on what gives humans standing and claims in a post-control AI world, producing a short synthesis and seeding a research agenda.</p>
-          <span class="go muted">Ongoing</span>
+          <div class="outputs">
+            <span class="go muted">Roundtables · Link to come</span>
+            <span class="go muted">Final Report · In Progress</span>
+          </div>
         </article>
         <article class="card">
           <div class="kind"><span>Research</span><em>2026</em></div>
@@ -295,14 +310,17 @@ footer .wrap { border-top: 1px solid var(--line); padding-block: 20px 40px; font
           <p>A game-theory reading of frontier AI competition with three players and the U.S. government as payoff-shaper, arguing that regulation and coordination can turn the dilemma into an assurance game.</p>
           <a class="go" href="https://substack.com/@alejandraleyva9" target="_blank" rel="noopener">Read on Substack</a>
         </article>
-        <article class="card">
-          <div class="kind"><span>Policy</span><em>2026</em></div>
-          <h3>A UK AI safety policy framework</h3>
-          <p class="org">LISA · AI Safety Policy Hackathon</p>
-          <p>Mapped existing UK institutions and policy proposals, identified governance gaps and recommended areas for greater institutional coordination.</p>
-          <span class="go muted">Hackathon output</span>
-        </article>
       </div>
+
+      <section class="earlier">
+        <p class="eyebrow">Earlier publications</p>
+        <ul class="pubs">
+          <li><span class="src">Nexos · 2019</span><a href="https://eljuegodelacorte.nexos.com.mx/las-leyes-se-interpretan-pero-los-numeros-no/" target="_blank" rel="noopener"><i>Las leyes se interpretan, pero los números no</i></a></li>
+          <li><span class="src">Nexos · 2018</span><a href="https://eljuegodelacorte.nexos.com.mx/coaliciones-y-candidaturas-comunes-su-consolidacion-como-herramientas-democraticas/" target="_blank" rel="noopener"><i>Coaliciones y candidaturas comunes: su consolidación como herramientas democráticas</i></a></li>
+          <li><span class="src">Animal Político / Grupo Animal · 2021</span><a href="https://www.grupoanimal.mx/opinion/asignando-responsabilidades-el-rol-del-comercio-internacional-de-armas-en-el-conflicto-israeli-palestino" target="_blank" rel="noopener"><i>El rol del comercio internacional de armas en el conflicto israelí-palestino</i></a></li>
+          <li><span class="src">Animal Político / Grupo Animal · 2020</span><a href="https://grupoanimal.mx/opinion/me-vacuno-o-no" target="_blank" rel="noopener"><i>¿Me vacuno o no?</i></a></li>
+        </ul>
+      </section>
       </div></div>
     </div>
 
@@ -425,21 +443,15 @@ footer .wrap { border-top: 1px solid var(--line); padding-block: 20px 40px; font
       <section class="more-block">
         <h2>Travel</h2>
         <div class="prose">
-          <p>Travelling is my favourite thing to do. I love exploring other cultures and learning from them.</p>
+          <p>A few places I've explored along the way.</p>
         </div>
         <div class="gallery">
           <img src="img/travel-istanbul-1.jpg" alt="Courtyard of a mosque in Istanbul" loading="lazy">
-          <img src="img/travel-thailand-buddha.jpg" alt="Golden seated Buddha inside a temple in Thailand" loading="lazy">
           <img src="img/travel-angkor.jpg" alt="Birds over the towers of Angkor Wat at dawn" loading="lazy">
           <img src="img/travel-vietnam.jpg" alt="Winding mountain road in northern Vietnam" loading="lazy">
           <img src="img/travel-hongkong.jpg" alt="Dense residential towers in Hong Kong on a rainy day" loading="lazy">
           <img src="img/travel-bali.jpg" alt="Cliff and turquoise sea at Kelingking Beach, Nusa Penida" loading="lazy">
-          <img src="img/travel-thailand-elephant.jpg" alt="With an elephant in a bamboo forest in Thailand" loading="lazy">
-          <img src="img/travel-strasbourg.jpg" alt="Strasbourg Cathedral above a busy street" loading="lazy">
           <img src="img/travel-rio.jpg" alt="Christ the Redeemer in the fog, Rio de Janeiro" loading="lazy">
-          <img src="img/travel-capri.jpg" alt="Beach club below the cliffs of Capri" loading="lazy">
-          <img src="img/travel-laos.jpg" alt="Golden stupa of Pha That Luang, Vientiane" loading="lazy">
-          <img src="img/travel-budapest.jpg" alt="Painted ceiling of a grand café in Budapest" loading="lazy">
           <img src="img/travel-mazamitla.jpg" alt="Giant catrina in front of the church in Mazamitla, Jalisco" loading="lazy">
           <img src="img/travel-gili.jpg" alt="Sunset over the sea with a volcano on the horizon, Gili islands" loading="lazy">
         </div>
@@ -452,13 +464,11 @@ footer .wrap { border-top: 1px solid var(--line); padding-block: 20px 40px; font
       <div class="band dark last"><div class="wrap">
       <section>
         <p class="eyebrow">Contact</p>
-        <h1 class="title">Working on AI governance, policy or risk? Let's talk.</h1>
+        <h1 class="title">Get in Touch</h1>
       </section>
       <div class="contact-list">
-        <div class="contact-row"><div class="k">Email</div><div class="email"><code id="email-text">Alejandra.leyvaor@gmail.com</code><button class="copy" id="copy-email" type="button" data-for="email-text">Copy</button></div></div>
-        <div class="contact-row"><div class="k">Email</div><div class="email"><code id="email-text-2">aleleyva9@gmail.com</code><button class="copy" id="copy-email-2" type="button" data-for="email-text-2">Copy</button></div></div>
+        <div class="contact-row"><div class="k">Email</div><div class="email"><span class="em"><a id="email-text" href="mailto:alejandra.leyvaor@gmail.com">alejandra.leyvaor@gmail.com</a><button class="copy" id="copy-email" type="button" data-for="email-text" aria-label="Copy first email">Copy</button></span><span class="sep">/</span><span class="em"><a id="email-text-2" href="mailto:aleleyva9@gmail.com">aleleyva9@gmail.com</a><button class="copy" id="copy-email-2" type="button" data-for="email-text-2" aria-label="Copy second email">Copy</button></span></div></div>
         <div class="contact-row"><div class="k">LinkedIn</div><div><a href="https://www.linkedin.com/in/alejandraleyva/" target="_blank" rel="noopener">linkedin.com/in/alejandraleyva</a></div></div>
-        <div class="contact-row"><div class="k">Substack</div><div><a href="https://substack.com/@alejandraleyva9" target="_blank" rel="noopener">substack.com/@alejandraleyva9</a></div></div>
       </div>
       </div></div>
     </div>
