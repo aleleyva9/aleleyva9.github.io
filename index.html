@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Alejandra Leyva, political scientist and AI governance researcher.">
-<title>Alejandra Leyva</title>
 <!-- Link previews (LinkedIn, WhatsApp, Slack, X) -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Alejandra Leyva">
@@ -17,6 +16,7 @@
 <meta name="twitter:title" content="Alejandra Leyva">
 <meta name="twitter:description" content="Political scientist and AI governance researcher. Papers, campaigns, convenings and CV.">
 <meta name="twitter:image" content="https://aleleyva9.github.io/og-image.jpg">
+<title>Alejandra Leyva</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&display=swap">
 <style>
@@ -86,6 +86,7 @@ section { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
 /* About: text left, photo right */
 .about-grid { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 64px; align-items: start; }
 .about-grid .prose { gap: 20px; }
+.about-grid .prose p.bio { font-size: 19px; color: var(--fg); line-height: 1.6; max-width: 56ch; }
 .photo { width: 100%; height: auto; aspect-ratio: 6 / 5; max-width: 100%; background: var(--bg-2); object-fit: cover; display: block; }
 
 /* Areas of inquiry, three cards */
@@ -179,10 +180,7 @@ footer .wrap { border-top: 1px solid var(--line); padding-block: 20px 40px; font
     <div class="view" id="view-about">
       <div class="about-grid">
         <div class="prose">
-          <h1 class="title">I am a political scientist and researcher with experience in public policy, international security and media analysis.</h1>
-          <p>At the moment I am focusing entirely on AI governance. I convene senior experts in roundtable discussions on human control over advanced AI, I lead an advocacy campaign and coalition open letter on AI-enabled autonomous weapons, and I research how countries outside the AI frontier can strengthen their institutions and their bargaining position with foreign AI providers.</p>
-          <p>Before that, I worked at Mexico's Federal Electoral Court advising a magistrate on complex cases and communicating judicial decisions to the public. At Meta I worked on a crisis response team addressing media scrutiny and reputational issues involving AI and data in Europe. At Signal AI I led client-facing research on risk and reputation and acted as the bridge between clients and the engineering teams building their tools.</p>
-          <p>I hold an MSc in Security, Peacebuilding and Diplomacy from Loughborough University and a BA in Political Science from ITAM.</p>
+          <p class="bio">Alejandra is a political scientist and AI governance researcher. She holds an MSc in Security, Peacebuilding and Diplomacy from Loughborough University London and has previously worked at Mexico's highest electoral court and Meta. Her current research focuses on international AI coordination, the role of middle powers, and post-control scenarios for advanced AI.</p>
         </div>
         <img class="photo" src="photo.jpg" alt="Alejandra Leyva speaking at a conference" width="900" height="750">
       </div>
