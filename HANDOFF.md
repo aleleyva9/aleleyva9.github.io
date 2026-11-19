@@ -405,6 +405,7 @@ The site can be previewed by opening `index.html` straight from the folder. Anal
 
 ### 6.4 Backups
 
-- Tag `backup-2026-11-19` marks the repository exactly as handed over. To see or restore that state, open the tag on GitHub under Tags.
+- Commit `1566629` (17 Nov 2026, "Add GoatCounter analytics") is the last change to the site itself, and the handoff state is that commit plus this document. To see the site exactly as it was, open that commit on GitHub under Commits and press Browse files. Claude could not create a tag from its session, so Alejandra may want to add one herself on GitHub under Releases, Tags, for example `backup-2026-11-19`.
+- Alejandra also received a ZIP of the whole repository with its full history on 19 Nov 2026, to keep outside GitHub.
 - A ZIP of any state can be downloaded from GitHub with Code, Download ZIP.
 - The full git history is the real backup. Every earlier version of every file can be recovered from the commit list.
